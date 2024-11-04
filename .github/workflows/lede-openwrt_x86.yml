@@ -103,7 +103,11 @@ jobs:
       uses: actions/checkout@main
       with:
           fetch-depth: 0
-
+    - name: Cache
+      uses: klever1988/cachewrtbuild@main
+      with:
+      ccache: 'true'
+      prefix: /workdir/openwrt 
                   
     - name: Clone source code
       working-directory: /workdir
