@@ -131,9 +131,11 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        cat openwrt/.config
         chmod +x $DIY_P2_SH
         cd /workdir/openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        df -hT
 
     - name: Download package
       id: package
