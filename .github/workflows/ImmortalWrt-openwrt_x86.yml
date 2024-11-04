@@ -68,6 +68,9 @@ jobs:
         echo "=============================================================================="
         df -hT
         echo "=============================================================================="
+
+    - name: Checkout
+      uses: actions/checkout@main
        
     - name: Initialization environment
       env:
@@ -80,12 +83,8 @@ jobs:
         df -hT
         ls
 
-    - name: Checkout
-      uses: actions/checkout@main
-      with:
-          fetch-depth: 0
-
-                  
+    
+                       
     - name: Clone source code
       working-directory: /workdir
       run: |
