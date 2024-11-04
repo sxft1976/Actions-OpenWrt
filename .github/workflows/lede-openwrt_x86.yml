@@ -115,9 +115,7 @@ jobs:
         
     - name: Cache
       uses: stupidloud/cachewrtbuild@main
-      with:
-      prefix: ${{ github.workspace }}/openwrt
-        
+           
     
     - name: Load custom feeds
       run: |
