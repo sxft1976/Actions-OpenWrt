@@ -142,15 +142,14 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         cat ./openwrt/.config
         chmod +x $DIY_P2_SH
-        cd openwrt
-        
+        cd openwrt        
         $GITHUB_WORKSPACE/$DIY_P2_SH
         df -hT
 
     - name: Download package
       id: package
       run: |
-        cd /workdir/openwrt
+        cd //openwrt
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
@@ -160,7 +159,7 @@ jobs:
     - name: Compile the firmware
       id: compile
       run: |
-        cd /workdir/openwrt
+        cd /openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "status=success" >> $GITHUB_OUTPUT
