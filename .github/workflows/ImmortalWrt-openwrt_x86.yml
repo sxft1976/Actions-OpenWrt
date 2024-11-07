@@ -80,8 +80,8 @@ jobs:
         remove-android: 'true'
         remove-haskell: 'true'
         remove-codeql: 'true'
-        remove-docker-images: 'true'
-      
+        remove-docker-images: 'true'        
+        build-mount-path: '/workdir'      
 
     - name: Free up disk space complete
       run: |
@@ -117,7 +117,7 @@ jobs:
     
                        
     - name: Clone source code
-      working-directory: ./
+      working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
@@ -140,7 +140,7 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        cat ./openwrt/.config
+        cat /workdir/openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt        
         $GITHUB_WORKSPACE/$DIY_P2_SH
