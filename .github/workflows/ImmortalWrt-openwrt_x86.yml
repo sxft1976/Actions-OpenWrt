@@ -100,7 +100,7 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        # ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Load custom feeds
       run: |
@@ -124,22 +124,7 @@ jobs:
         cd openwrt        
         $GITHUB_WORKSPACE/$DIY_P2_SH
         df -hT
-    - name: Get architecture
-      working-directory: ${{ github.workspace }}/openwrt
-      run: |
-        TARGET_DEVICE_ARCH="$(grep "^CONFIG_TARGET_.*=y$" ".config" | head -n 1 | sed 's/^CONFIG_TARGET_//g' | sed 's/=y//g'| awk -F '_' '{print $1}')"
-        echo "TARGET_DEVICE_ARCH=${TARGET_DEVICE_ARCH}" >>$GITHUB_ENV
-        
-        
-    - name: cache
-      uses: stupidloud/cachewrtbuild@main
-      with:
-        ccache: 'true'
-        mixkey: ${{ env.TARGET_DEVICE_ARCH }}
-        toolchain: 'true'
-        clean: ${{github.event.inputs.clean}}
-        prefix: ${{ github.workspace }}/openwrt
-
+ 
     - name: Download package
       id: package
       run: |
