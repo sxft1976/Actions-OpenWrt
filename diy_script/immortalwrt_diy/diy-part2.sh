@@ -13,7 +13,7 @@
 
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.0.253/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.1.253/g' package/base-files/files/bin/config_generate
 
 # rollback ruby verion from 3.3.4 to 3.2.2
 # cd feeds/packages
