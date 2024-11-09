@@ -47,21 +47,19 @@ jobs:
         echo -e "$(sudo lshw -short -C memory | grep GiB) \n"
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l)" && df -hT
-    
-    
-
-    - name: Freeing up disk space
-      uses: easimon/maximize-build-space@master
-      with: 
-        root-reserve-mb: 2048
-        swap-size-mb: 1
-        remove-dotnet: 'true'
-        remove-android: 'true'
-        remove-haskell: 'true'
-        remove-codeql: 'true'
-        remove-docker-images: 'true'        
-        build-mount-path: '/workdir'      
-
+      
+   - name: Maximize Build Space
+     uses: easimon/maximize-build-space@master
+     with:
+          root-reserve-mb: 6144
+          swap-size-mb: 10240
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
+          build-mount-path: '/workdir'
+          
     - name: Free up disk space complete
       run: |
         echo "Free up disk space complete"
@@ -71,6 +69,8 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@main
+      with:
+          fetch-depth: 0
        
     - name: Initialization environment
       env:
