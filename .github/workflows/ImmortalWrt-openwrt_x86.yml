@@ -33,8 +33,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 1000
-    steps:
-    
+    steps:    
     - name: Check Server Performance
       run: |
         echo "警告⚠"
