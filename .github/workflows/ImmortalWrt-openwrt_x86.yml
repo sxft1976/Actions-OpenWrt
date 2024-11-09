@@ -119,7 +119,7 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P2_SH
         df -hT
         
-   - name: cache
+    - name: cache
       uses: stupidloud/cachewrtbuild@main
       with:
         ccache: 'true'
