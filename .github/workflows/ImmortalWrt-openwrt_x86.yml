@@ -23,6 +23,7 @@ env:
   FEEDS_CONF: feeds_config/immortalwrt.feeds.conf.default
   DIY_P1_SH: diy_script/immortalwrt_diy/diy-part1.sh 
   DIY_P2_SH: diy_script/immortalwrt_diy/diy-part1.sh
+  MIXKEY: x86_64
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_ARTIFACT: true
