@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #
 # Copyright (c) 2019-2023 SmallProgram <https://github.com/smallprogram>
