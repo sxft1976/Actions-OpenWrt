@@ -118,6 +118,18 @@ jobs:
         cd openwrt        
         $GITHUB_WORKSPACE/$DIY_P2_SH
         df -hT
+        
+   - name: cache
+      uses: stupidloud/cachewrtbuild@main
+      with:
+        ccache: 'true'
+        #mixkey: ${{ env.TARGET_DEVICE_ARCH }}
+        mixkey: ${{ env.MIXKEY }}
+        toolchain: 'true'
+        clean: ${{github.event.inputs.clean}}
+        prefix: ${{ github.workspace }}/openwrt
+
+    
  
     - name: Download package
       id: package
