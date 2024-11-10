@@ -118,8 +118,8 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt        
         $GITHUB_WORKSPACE/$DIY_P2_SH 
-        mkdir -p d/workdir/openwrt/dl
-        cp -r library/cryptopp850.zip /workdir/openwrt/dl/
+        mkdir -p /workdir/openwrt/dl
+        cp -r library/cryptopp850.zip /workdir/openwrt/dl/cryptopp850.zip
         df -hT
         
     - name: cache
