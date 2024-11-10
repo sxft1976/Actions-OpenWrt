@@ -119,7 +119,7 @@ jobs:
         cd openwrt        
         $GITHUB_WORKSPACE/$DIY_P2_SH 
         mkdir -p /workdir/openwrt/dl
-        cp -r library/* /workdir/openwrt/dl/
+        cp -r $GITHUB_WORKSPACE/library/* /workdir/openwrt/dl/
         df -hT
         
     - name: cache
