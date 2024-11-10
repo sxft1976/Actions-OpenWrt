@@ -118,7 +118,7 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt        
         $GITHUB_WORKSPACE/$DIY_P2_SH 
-        mkdir -p dl
+        mkdir -p d/workdir/openwrt/dl
         cp -r library/cryptopp850.zip /workdir/openwrt/dl/
         df -hT
         
@@ -130,9 +130,7 @@ jobs:
         mixkey: ${{ env.MIXKEY }}
         toolchain: 'true'
         clean: ${{github.event.inputs.clean}}
-        prefix: /workdir/openwrt
-
-    
+        prefix: /workdir/openwrt    
  
     - name: Download package
       id: package
