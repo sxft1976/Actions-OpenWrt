@@ -121,7 +121,7 @@ jobs:
         cp -r $GITHUB_WORKSPACE/library/* /workdir/openwrt/dl/
         df -hT
 
-   - name: Get architecture
+    - name: Get architecture
       working-directory: /workdir/openwrt
       run: |
         TARGET_DEVICE_ARCH="$(grep "^CONFIG_TARGET_.*=y$" ".config" | head -n 1 | sed 's/^CONFIG_TARGET_//g' | sed 's/=y//g'| awk -F '_' '{print $1}')"
