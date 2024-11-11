@@ -23,7 +23,6 @@ env:
   FEEDS_CONF: feeds_config/immortalwrt.feeds.conf.default
   DIY_P1_SH: diy_script/immortalwrt_diy/diy-part1.sh 
   DIY_P2_SH: diy_script/immortalwrt_diy/diy-part1.sh
-  MIXKEY: x86_64
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_ARTIFACT: true
@@ -121,6 +120,13 @@ jobs:
         mkdir -p /workdir/openwrt/dl
         cp -r $GITHUB_WORKSPACE/library/* /workdir/openwrt/dl/
         df -hT
+
+   - name: Get architecture
+      working-directory: /workdir/openwrt
+      run: |
+        TARGET_DEVICE_ARCH="$(grep "^CONFIG_TARGET_.*=y$" ".config" | head -n 1 | sed 's/^CONFIG_TARGET_//g' | sed 's/=y//g'| awk -F '_' '{print $1}')"
+        echo "TARGET_DEVICE_ARCH=${TARGET_DEVICE_ARCH}" >>$GITHUB_ENV
+        echo "MIXKEY=x86_64" >>$GITHUB_ENV
         
     - name: cache
       uses: stupidloud/cachewrtbuild@main
