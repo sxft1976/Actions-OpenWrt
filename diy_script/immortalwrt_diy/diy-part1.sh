@@ -57,4 +57,4 @@ git clone https://github.com/sirpdboy/netspeedtest.git ./package/custom_packages
 # smartdns
 # git clone https://github.com/pymumu/smartdns.git ./package/custom_packages/smartdns
 
-rm -rf package/network/utils/nftables/patches/002-nftables-add-fullcone-expression-support.patch
+rm -rf ./package/network/utils/nftables/patches/002-nftables-add-fullcone-expression-support.patch
