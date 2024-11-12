@@ -121,7 +121,8 @@ jobs:
         ccache: 'true'
         mixkey: ${{ env.MIXKEY }}
         toolchain: 'true'
-        # clean: ${{github.event.inputs.clean}}
+        skip: true
+        clean: false
         prefix: /workdir/openwrt    
  
     - name: Download package
