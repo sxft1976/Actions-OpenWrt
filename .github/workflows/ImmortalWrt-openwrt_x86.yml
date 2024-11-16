@@ -122,7 +122,7 @@ jobs:
         mixkey: ${{ env.MIXKEY }}
         toolchain: 'true'
         skip: true
-        clean: true
+        clean: flase
         prefix: /workdir/openwrt    
  
     - name: Download package
