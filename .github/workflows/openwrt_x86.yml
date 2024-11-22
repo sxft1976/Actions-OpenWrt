@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: lede-openwrt_x86
+name: openwrt_x86
 
 on:
   repository_dispatch:
