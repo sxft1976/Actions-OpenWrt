@@ -19,8 +19,8 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  CONFIG_FILE: config/lede_config/X86.config 
-  FEEDS_CONF: feeds_config/lean.feeds.conf.default
+  CONFIG_FILE: config/openwrt_config/X86.config 
+  FEEDS_CONF: feeds_config/openwrt.feeds.conf.default
   DIY_P1_SH: diy_script/lede_diy/diy-part1.sh 
   DIY_P2_SH: diy_script/lede_diy/diy-part2.sh
   UPLOAD_BIN_DIR: false
