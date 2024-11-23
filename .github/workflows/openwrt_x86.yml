@@ -114,6 +114,23 @@ jobs:
         cd /workdir/openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
         df -hT
+        
+    - name: Get architecture
+      working-directory: /workdir/openwrt
+      run: |
+        TARGET_DEVICE_ARCH="$(grep "^CONFIG_TARGET_.*=y$" ".config" | head -n 1 | sed 's/^CONFIG_TARGET_//g' | sed 's/=y//g'| awk -F '_' '{print $1}')"
+        echo "TARGET_DEVICE_ARCH=${TARGET_DEVICE_ARCH}" >>$GITHUB_ENV
+        echo "MIXKEY=x86_64" >>$GITHUB_ENV
+        
+    - name: cache
+      uses: stupidloud/cachewrtbuild@main
+      with:
+        ccache: 'true'
+        mixkey: ${{ env.MIXKEY }}
+        toolchain: 'true'
+        skip: true
+        clean: flase
+        prefix: /workdir/openwrt    
 
     - name: Download package
       id: package
