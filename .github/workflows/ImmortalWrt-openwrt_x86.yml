@@ -121,7 +121,7 @@ jobs:
         ccache: 'true'
         mixkey: ${{ env.MIXKEY }}
         toolchain: 'true'
-        skip: true
+        skip: flase
         clean: flase
         prefix: /workdir/openwrt    
  
