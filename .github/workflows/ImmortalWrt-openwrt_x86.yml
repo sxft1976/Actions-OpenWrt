@@ -118,7 +118,7 @@ jobs:
     - name: cache
       uses: stupidloud/cachewrtbuild@main
       with:
-        ccache: 'true'
+        ccache: 'flase'
         mixkey: ${{ env.MIXKEY }}
         toolchain: 'true'
         skip: true
