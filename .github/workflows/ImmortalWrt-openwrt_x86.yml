@@ -118,12 +118,18 @@ jobs:
     - name: cache
       uses: stupidloud/cachewrtbuild@main
       with:
-        ccache: 'flase'
+        ccache: 'true'
+        #mixkey: ${{ env.TARGET_DEVICE_ARCH }}
         mixkey: ${{ env.MIXKEY }}
         toolchain: 'true'
-        skip: true
-        clean: flase
-        prefix: /workdir/openwrt    
+        clean: ${{github.event.inputs.clean}}
+        prefix: ${{ github.workspace }}/openwrt
+        #ccache: 'flase'
+        #mixkey: ${{ env.MIXKEY }}
+        #toolchain: 'true'
+        #skip: true
+        #clean: flase
+        #prefix: /workdir/openwrt    
  
     - name: Download package
       id: package
